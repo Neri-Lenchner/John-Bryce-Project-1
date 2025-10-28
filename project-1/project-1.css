@@ -37,7 +37,6 @@ button:hover {
   cursor: pointer;
 }
 
-
 /* 2. Full-screen container */
 .general-container {
   background-image: url('images/wooden-notes-board.jpg');
@@ -111,11 +110,10 @@ button:hover {
 */
 
 .note {
-  background: url('images/note-option-1.png') no-repeat;
+  background: url('images/note-new-2.png') no-repeat;
   background-size: 100% 100%;
-  width: 220px;
-  height: 270px;
-  transform: scaleX(-1) rotate(-2deg); /* FLIP + tilt */
+  width: 300px;
+  height: 400px;
   filter: drop-shadow(0 10px 20px black);
   animation: fadeIn 1s;
   position: relative;
@@ -128,7 +126,6 @@ button:hover {
   left: 30px;
   right: 30px;
   bottom: 40px;
-  transform: scaleX(-1); /* UNFLIP the text */
 }
 
 .note-info textarea {
