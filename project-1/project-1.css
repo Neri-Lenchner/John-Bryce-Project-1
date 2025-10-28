@@ -87,26 +87,48 @@ button:hover {
   transform: scaleX(1) rotate(-2deg);
 }
 */
+/*
+.note {
+  background: url('images/note-option-1.png') no-repeat;
+  background-size: 100% 100%;
+  width: 220px;
+  height: 270px;
+  transform: rotate(-2deg);
+  filter: drop-shadow(0 10px 20px black);
+  animation: fadeIn 1s;
+  position: relative; 
+  overflow: hidden; 
+}
+
+.note-info {
+  position: absolute;
+  top: 50px;   
+  left: 30px;   
+  right: 30px;
+  bottom: 40px;
+  transform: none; 
+}
+*/
 
 .note {
   background: url('images/note-option-1.png') no-repeat;
   background-size: 100% 100%;
   width: 220px;
   height: 270px;
-  transform: rotate(-2deg); /* only rotate, not flip */
+  transform: scaleX(-1) rotate(-2deg); /* FLIP + tilt */
   filter: drop-shadow(0 10px 20px black);
   animation: fadeIn 1s;
-  position: relative; /* needed for inner positioning */
-  overflow: hidden; /* ensure textarea doesn't overflow */
+  position: relative;
+  overflow: hidden; /* No scrollbars */
 }
 
 .note-info {
   position: absolute;
-  top: 50px;    /* adjust based on your note design */
-  left: 30px;   /* adjust padding from edges */
+  top: 50px;
+  left: 30px;
   right: 30px;
   bottom: 40px;
-  transform: none; /* no flip or extra rotation */
+  transform: scaleX(-1); /* UNFLIP the text */
 }
 
 .note-info textarea {
@@ -117,7 +139,7 @@ button:hover {
   resize: none;
   font-family: "Covered By Your Grace", cursive;
   font-size: 18px;
-  color: #333;
+  color: black;
   padding: 10px;
   box-sizing: border-box;
   outline: none;
