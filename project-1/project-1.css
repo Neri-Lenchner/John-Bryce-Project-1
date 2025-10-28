@@ -70,44 +70,7 @@ button:hover {
    display:flex;
    justify-content: start;
 }
-/*
-.note {
-  background: url('images/note-option-1.png') no-repeat;
-  background-size: 100% 100%;   
-  width: 220px;
-  height: 270px;
-  transform: scaleX(-1) rotate(-2deg);
-  filter: drop-shadow(0 10px 20px black);
-  animation: fadeIn;
-  animation-duration: 1s;
-}
 
-.note-info {
-  transform: scaleX(1) rotate(-2deg);
-}
-*/
-/*
-.note {
-  background: url('images/note-option-1.png') no-repeat;
-  background-size: 100% 100%;
-  width: 220px;
-  height: 270px;
-  transform: rotate(-2deg);
-  filter: drop-shadow(0 10px 20px black);
-  animation: fadeIn 1s;
-  position: relative; 
-  overflow: hidden; 
-}
-
-.note-info {
-  position: absolute;
-  top: 50px;   
-  left: 30px;   
-  right: 30px;
-  bottom: 40px;
-  transform: none; 
-}
-*/
 .notes-monitor {
   display: flex;
   flex-wrap: wrap;
@@ -130,14 +93,7 @@ button:hover {
 }
 
 .note-info {
-  
-  /*
-  position: absolute;
-  top: 50px;
-  left: 30px;
-  right: 30px;
-  bottom: 40px;
-  */
+  margin-top: 40px;
 }
 
  .text-erea {
