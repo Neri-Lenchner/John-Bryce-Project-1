@@ -177,6 +177,11 @@ button:hover {
   opacity: 1;
 }
 
+.date-time-container {
+  font-size: 20px;
+  color: blue;
+}
+
 
 @keyframes fadeIn {
   0% {
