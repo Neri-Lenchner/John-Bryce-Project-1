@@ -36,6 +36,7 @@ h1 {
   display: flex;
   justify-self: center;
   margin-top: 10px;
+  filter: drop-shadow(0 2px 4px black);
 }
 
 .notes-monitor {
@@ -47,11 +48,10 @@ h1 {
 }
 
 .note {
-  background: url('images/note-1.png') no-repeat;
+  background: url('images/note-option-1.png') no-repeat;
   background-size: 100% 100%;   /* THIS STRETCHES IT */
   width: 220px;
   height: 270px;
-  transform: scaleX(-1);
+  transform: scaleX(-1) rotate(-2deg);
+  filter: drop-shadow(0 10px 20px black);
 }
-
-
