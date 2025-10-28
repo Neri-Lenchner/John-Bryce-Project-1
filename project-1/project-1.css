@@ -12,6 +12,8 @@ h1 {
   text-align: center;
   margin: 0;
   padding-top: 20px;
+  font-weight: 900;
+  font-size: 60px;
 }
 
 form {
