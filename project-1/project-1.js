@@ -1,20 +1,33 @@
 console.log('Project 1');
 
+const notesMonitorElement = document.querySelector('#notes-monitor-element');
+
 function renderNote() {
   const note = document.createElement('div');
   note.className = 'note';
   const noteButton = document.createElement('button');
   noteButton.className = 'note-button';
+  noteButton.innerHTML = '&times;';
   const noteInfo = document.createElement('div');
   noteInfo.className = 'note-info';
   const textErea = document.createElement('textarea');
+  textErea.textContent = 'This note is givven to you by The Lench. The best Lenchner there is. If you want to check this out you can!!! ;yeah yeah yeah';
   textErea.className = 'text-erea';
   const dateTimeContainer = document.createElement('div');
   dateTimeContainer.className = 'date-time-container';
   const date = document.createElement('div');
+  date.textContent = '28/10/2025';
   date.className = 'date';
   const time = document.createElement('div');
   time.className = 'time';
+  time.textContent = '13:00';
   dateTimeContainer.append(date, time);
-  note.append(noteButton,noteInfo, textErea, dateTimeContainer);
+
+  noteInfo.append(textErea, dateTimeContainer);
+
+  note.append(noteButton,noteInfo);
+
+  notesMonitorElement.appendChild(note);
 }
+
+renderNote();

@@ -108,6 +108,11 @@ button:hover {
   transform: none; 
 }
 */
+.notes-monitor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 .note {
   background: url('images/note-new-5.png') no-repeat;
