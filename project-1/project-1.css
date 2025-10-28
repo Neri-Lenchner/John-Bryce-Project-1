@@ -65,16 +65,16 @@ button:hover {
 }
 
 .notes-monitor {
-   margin-left: 50px;
-   margin-top: 20px;
-   display:flex;
-   justify-content: start;
-}
-
-.notes-monitor {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-left: 50px;
+  margin-top: 20px;
+  justify-content: space-around;
+  overflow: scroll;
+  scrollbar-width: none;
+  height: 400px;
+  margin-right: 50px;
 }
 
 .note {
@@ -90,6 +90,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-bottom: 100px;
 }
 
 .note-info {
@@ -139,8 +140,11 @@ button:hover {
 }
 
 .date-time-container {
-  font-size: 20px;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
   color: blue;
+  margin-bottom: 15px;
 }
 
 

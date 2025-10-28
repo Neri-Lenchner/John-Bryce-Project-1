@@ -31,3 +31,12 @@ function renderNote() {
 }
 
 renderNote();
+renderNote();
+renderNote();
+renderNote();
+renderNote();
+renderNote();
+renderNote();
+renderNote();
+renderNote();
+renderNote();
