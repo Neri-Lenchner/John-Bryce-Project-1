@@ -20,16 +20,22 @@
     <h1>My Task Board</h1>
 
     <div id="notebook-page-element" class="notebook-page">
-      <form>
+      <form onsubmit="addTodo()">
         <input name="todoData" type="text" minlength="2" placeholder="Enter Todo Details"  required>
         <input name="todoDate" type="date" required>
         <input name="todoTime" type="time" required>
         <button type="submit">Add Todo</button>
-        <button>Reset Form</button>
+        <button type="submit">Reset Form</button>
       </form>
     </div>
     <div id="notes-monitor-element" class="notes-monitor">
-      <div class="note"></div>
+      <div class="note">
+        <div class="note-info">
+          <textarea>
+            This note is givven to you by The Lench. The best Lenchner there is. If you want to check this out you can!!! ;yeah yeah yeah
+        </textarea>
+        </div>
+      </div>
     </div>
   </div>
   
