@@ -49,9 +49,9 @@ h1 {
 .note {
   background: url('images/note-1.png') no-repeat;
   background-size: 100% 100%;   /* THIS STRETCHES IT */
-  
-  width: 200px;
+  width: 220px;
   height: 270px;
+  transform: scaleX(-1);
 }
 
 
