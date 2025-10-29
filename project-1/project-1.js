@@ -11,7 +11,6 @@ class Todo {
 }
 
 // Restart Stuff //
-const list = returnList();
 const todoListTotalData = JSON.parse(localStorage.getItem('tudulist')) || [];
 const todoListTotal = [];
 createTodoList();
@@ -134,14 +133,6 @@ function renderNotes1() {
 
     notesMonitorElement.appendChild(note);
   }
-}
-
-function returnList() {
-  return [
-    new Todo('jimbo', '18/06/2025', '17:25'),
-    new Todo("people are strange when your a stranger faces looks ugly when you're alone", '22/05/2025', '07:00'),
-    new Todo("There's a lady who's sure all that glitters is gold and she's buying a stairway to heaven", '18/06/2025', '17:25'),
-  ]
 }
 
 function deleteNote(index) {
