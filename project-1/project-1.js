@@ -39,7 +39,83 @@ function resetForm() {
     inputs[i].value = '';
   }
 }
+/*
+function renderNotes() {
+  notesMonitorElement.innerHTML = '';
+  let lastNoteElement = null;
+  for (let i = 0; i < todoListTotal.length; i++) {
 
+    const todo = todoListTotal[i];
+
+    const note = document.createElement('div');
+    note.className = 'note';
+    const noteButton = document.createElement('button');
+    noteButton.className = 'note-button'; 
+    noteButton.innerHTML = '&times;';
+    noteButton.setAttribute('onclick', `deleteNote(${i})`);
+    const noteInfo = document.createElement('div');
+    noteInfo.className = 'note-info';
+    const textErea = document.createElement('textarea');
+    textErea.textContent = todo.todoData;
+    textErea.className = 'text-erea';
+    const dateTimeContainer = document.createElement('div');
+    dateTimeContainer.className = 'date-time-container';
+    const date = document.createElement('div');
+    date.textContent = todo.todoDate;
+    date.className = 'date';
+    const time = document.createElement('div');
+    time.className = 'time';
+    time.textContent = todo.todoTime;
+    dateTimeContainer.append(date, time);
+
+    noteInfo.append(textErea, dateTimeContainer);
+
+    note.append(noteButton,noteInfo);
+
+    notesMonitorElement.appendChild(note);
+    lastNoteElement = note;
+  }
+  if (lastNoteElement) {
+    lastNoteElement.classList.add('last-note');
+  }
+}
+
+function renderNotes1() {
+
+  notesMonitorElement.innerHTML = '';
+  for (let i = 0; i < todoListTotal.length; i++) {
+
+    const todo = todoListTotal[i];
+
+    const note = document.createElement('div');
+    note.className = 'note';
+    const noteButton = document.createElement('button');
+    noteButton.className = 'note-button'; 
+    noteButton.innerHTML = '&times;';
+    noteButton.setAttribute('onclick', `deleteNote(${i})`);
+    const noteInfo = document.createElement('div');
+    noteInfo.className = 'note-info';
+    const textErea = document.createElement('textarea');
+    textErea.textContent = todo.todoData;
+    textErea.className = 'text-erea';
+    const dateTimeContainer = document.createElement('div');
+    dateTimeContainer.className = 'date-time-container';
+    const date = document.createElement('div');
+    date.textContent = todo.todoDate;
+    date.className = 'date';
+    const time = document.createElement('div');
+    time.className = 'time';
+    time.textContent = todo.todoTime;
+    dateTimeContainer.append(date, time);
+
+    noteInfo.append(textErea, dateTimeContainer);
+
+    note.append(noteButton,noteInfo);
+
+    notesMonitorElement.appendChild(note);
+  }
+}
+*/
 function returnList() {
   return [
     new Todo('jimbo', '18/06/2025', '17:25'),
