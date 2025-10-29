@@ -9,9 +9,17 @@ class Todo {
     this.todoTime = todoTime;
   }
 }
+
+// Restart Stuff //
 const list = returnList();
 const todoListTotal = [...list];
 renderNotes1();
+
+/////////////////
+
+function saveData() {
+  localStorage.setItem('tudulist', JSON.stringify(todoListTotal));
+}
 
 function addTodo(event) {
   event.preventDefault();
@@ -22,6 +30,7 @@ function addTodo(event) {
   const time = form.todoTime.value;
 
   todoListTotal.push(new Todo(data, date, time));
+  saveData();
   renderNotes();
   console.log(todoListTotal);
 }
@@ -126,6 +135,10 @@ function deleteNote(index) {
   for (let i = 0; i < todoListTotal.length; i++) {
     if (i === index ) {
       todoListTotal.splice(i, 1);
+      saveData();
+      if (todoListTotal.length === 0) {
+        localStorage.removeItem('tudulist');
+      }
       renderNotes1();
     }
   }
