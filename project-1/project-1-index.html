@@ -30,12 +30,12 @@
 
     <!--FORM-->
     <div id="notebook-page-element" class="notebook-page">
-      <form onsubmit="addTodo()">
+      <form onsubmit="addTodo(event); return false;">
         <input name="todoData" type="text" minlength="2" placeholder="Enter Todo Details"  required>
         <input name="todoDate" type="date" required>
         <input name="todoTime" type="time" required>
         <button type="submit">Add Todo</button>
-        <button type="submit">Reset Form</button>
+        <button onclick="resetForm(event)">Reset Form</button>
       </form>
     </div>
 

@@ -1,4 +1,32 @@
-console.log('Project 1');
+class Todo {
+  todoData;
+  todoDate;
+  todoTime;
+
+  constructor(todoData, todoDate, todoTime) {
+    this.todoData = todoData;
+    this.todoDate = todoDate;
+    this.todoTime = todoTime;
+  }
+}
+
+const todoListTotal = [];
+
+function addTodo(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const data = form.todoData.value.trim();
+  const date = form.todoDate.value;
+  const time = form.todoTime.value;
+
+  todoListTotal.push(new Todo(data, date, time));
+    console.log(todoListTotal);
+}
+
+function resetForm(event) {
+  event.target.reset();
+}
 
 const notesMonitorElement = document.querySelector('#notes-monitor-element');
 
