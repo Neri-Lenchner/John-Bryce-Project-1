@@ -12,10 +12,21 @@ class Todo {
 
 // Restart Stuff //
 const list = returnList();
-const todoListTotal = [...list];
+const todoListTotalData = JSON.parse(localStorage.getItem('tudulist')) || [];
+const todoListTotal = [];
+createTodoList();
 renderNotes1();
 
 /////////////////
+
+function createTodoList() {
+  for (let i = 0; i < todoListTotalData.length; i++) {
+    if (todoListTotalData.length) {
+      const todo = todoListTotalData[i];
+      todoListTotal.push(new Todo(todo.todoData, todo.todoDate, todo.todoTime));
+    }
+  }
+}
 
 function saveData() {
   localStorage.setItem('tudulist', JSON.stringify(todoListTotal));
