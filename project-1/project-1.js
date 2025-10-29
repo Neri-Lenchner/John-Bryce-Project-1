@@ -70,11 +70,12 @@ function renderNotes() {
     const noteButton = document.createElement('button');
     noteButton.className = 'note-button'; 
     noteButton.innerHTML = '&times;';
-    noteButton.setAttribute('onclick', `deleteNote(${i})`);
+    // noteButton.setAttribute('onclick', `deleteNote(${i})`);
+    noteButton.setAttribute('onclick', 'deleteNoteByIndex(' + i + ')');
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
     const textErea = document.createElement('textarea');
-    textErea.textContent = todo.todoData;
+    textErea.value = todo.todoData;
     textErea.className = 'text-erea';
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
@@ -85,11 +86,8 @@ function renderNotes() {
     time.className = 'time';
     time.textContent = todo.todoTime;
     dateTimeContainer.append(date, time);
-
     noteInfo.append(textErea, dateTimeContainer);
-
     note.append(noteButton,noteInfo);
-
     notesMonitorElement.appendChild(note);
     lastNoteElement = note;
   }
@@ -111,11 +109,12 @@ function renderNotes1() {
     const noteButton = document.createElement('button');
     noteButton.className = 'note-button'; 
     noteButton.innerHTML = '&times;';
-    noteButton.setAttribute('onclick', `deleteNote(${i})`);
+    // noteButton.setAttribute('onclick', `deleteNote(${i})`);
+    noteButton.setAttribute('onclick', 'deleteNoteByIndex(' + i + ')');
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
     const textErea = document.createElement('textarea');
-    textErea.textContent = todo.todoData;
+    textErea.value = todo.todoData;
     textErea.className = 'text-erea';
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
@@ -146,4 +145,8 @@ function deleteNote(index) {
       renderNotes1();
     }
   }
+}
+
+function deleteNoteByIndex(index) {
+  deleteNote(index);
 }
