@@ -29,20 +29,22 @@
     <h1>My Task Board</h1>
 
     <!--FORM-->
+  
     <div id="notebook-page-element" class="notebook-page">
       <form onsubmit="addTodo(event); return false;">
         <input name="todoData" type="text" minlength="2" placeholder="Enter Todo Details"  required>
         <input name="todoDate" type="date" required>
         <input name="todoTime" type="time" required>
         <button type="submit">Add Todo</button>
-        <button onclick="resetForm(event)">Reset Form</button>
       </form>
+      <button onclick="resetForm()">Reset Form</button>
     </div>
 
     <!--MONITOR-->
     <div id="notes-monitor-element" class="notes-monitor">
 
       <!--NOTE-->
+<!--
       <div class="note">
         <button class="note-button">&times;</button>
           <div class="note-info">
@@ -55,7 +57,7 @@
             </div>
           </div>
       </div>
-
+-->
     </div>
 
   </div>
