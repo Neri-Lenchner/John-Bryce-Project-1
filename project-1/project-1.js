@@ -6,7 +6,7 @@ function renderNote() {
   const note = document.createElement('div');
   note.className = 'note';
   const noteButton = document.createElement('button');
-  noteButton.className = 'note-button';
+  noteButton.className = 'note-button'; // 'glyphicon glyphicon-remov bootstrap-button'; 
   noteButton.innerHTML = '&times;';
   const noteInfo = document.createElement('div');
   noteInfo.className = 'note-info';
