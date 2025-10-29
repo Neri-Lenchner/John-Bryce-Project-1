@@ -78,7 +78,7 @@ function renderNotes() {
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
     const date = document.createElement('div');
-    date.textContent = todo.todoDate;
+    date.textContent = todo.todoDate.split('-').reverse().join('/');
     date.className = 'date';
     const time = document.createElement('div');
     time.className = 'time';

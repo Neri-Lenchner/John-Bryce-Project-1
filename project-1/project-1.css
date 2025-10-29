@@ -48,6 +48,15 @@ button:hover {
   cursor: pointer;
 }
 
+textarea {
+  font-family: "Covered By Your Grace", cursive;
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  scrollbar-width: none;
+  text-align: center;
+}
+
 /* 2. Full-screen container */
 .general-container {
   background-image: url('images/wooden-notes-board.jpg');
@@ -177,6 +186,10 @@ button:hover {
   font-weight: bold;
   color: blue;
   margin-bottom: 15px;
+}
+
+.date {
+
 }
 
 
