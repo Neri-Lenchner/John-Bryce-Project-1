@@ -20,8 +20,8 @@ renderNotes1();
 /////////////////
 
 function createTodoList() {
-  for (let i = 0; i < todoListTotalData.length; i++) {
-    if (todoListTotalData.length) {
+  if (todoListTotalData.length) {
+    for (let i = 0; i < todoListTotalData.length; i++) {
       const todo = todoListTotalData[i];
       todoListTotal.push(new Todo(todo.todoData, todo.todoDate, todo.todoTime));
     }
