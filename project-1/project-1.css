@@ -78,13 +78,12 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-left: 50px;
   margin-top: 20px;
-  justify-content: space-around;
+  justify-content: start;
   overflow: scroll;
   scrollbar-width: none;
   height: 400px;
-  margin-right: 50px;
+  margin: 17px;
 }
 
 .note {
@@ -93,7 +92,6 @@ button:hover {
   width: 200px;
   height: 300px;
   filter: drop-shadow(0 10px 20px black);
-  animation: fadeIn 1s;
   overflow: hidden; 
   display: flex;
   flex-direction: column;
@@ -101,6 +99,10 @@ button:hover {
   justify-content: center;
   position: relative;
   margin-bottom: 100px;
+}
+
+.last-note {
+  animation: fadeIn 1s;
 }
 
 .note-info {
