@@ -71,7 +71,7 @@ function renderNotes() {
     noteButton.className = 'note-button'; 
     noteButton.innerHTML = '&times;';
     // noteButton.setAttribute('onclick', `deleteNote(${i})`);
-    noteButton.setAttribute('onclick', 'deleteNoteByIndex(' + i + ')');
+    noteButton.setAttribute('onclick', `deleteNoteByIndex(${i})`);
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
     const textErea = document.createElement('textarea');
@@ -110,7 +110,7 @@ function renderNotes1() {
     noteButton.className = 'note-button'; 
     noteButton.innerHTML = '&times;';
     // noteButton.setAttribute('onclick', `deleteNote(${i})`);
-    noteButton.setAttribute('onclick', 'deleteNoteByIndex(' + i + ')');
+    noteButton.setAttribute('onclick', `deleteNoteByIndex(${i})`);
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
     const textErea = document.createElement('textarea');
