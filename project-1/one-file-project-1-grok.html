@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Task Board – FINAL</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; font-family: "Covered By Your Grace", cursive; }
+    h1 { text-align: center; margin: 0; padding: 20px 0; font-weight: 900; font-size: 60px; }
+    .general-container { background: url('images/wooden-notes-board.jpg') center/cover fixed; height: 100vh; display: flex; flex-direction: column; padding: 10px; }
+    .notebook-page { background: url('images/notebook-page.jpg') center/100% 100% no-repeat; height: 300px; width: 60%; max-width: 800px; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    form { display: flex; flex-direction: column; gap: 12px; width: 80%; max-width: 400px; }
+    form input, form button { height: 40px; border: none; background: transparent; font-family: inherit; font-size: 28px; text-align: center; outline: none; }
+    form button { cursor: pointer; font-weight: bold; }
+
+    .notes-monitor {
+      flex: 1; overflow-y: auto; padding: 0 20px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px; align-content: start;
+    }
+
+    .note {
+      background: url('images/note-new-5.png') center/contain no-repeat;
+      width: 200px; height: 300px; position: relative;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+      animation: fadeIn 0.6s ease-out;
+      padding: 40px 20px 20px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .note-content { text-align: center; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+    .text-erea { width: 160px; height: 170px; background: transparent; border: none; resize: none; font-family: inherit; font-size: 24px; color: #000; outline: none; text-align: center; margin: 0; }
+    .text-erea::-webkit-scrollbar { display: none; }
+    .date-time-container { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #0066cc; line-height: 1.2; }
+
+    .note-close {
+      position: absolute; top: 12px; right: 12px; width: 28px; height: 28px;
+      background: #000; border-radius: 6px; border: none; opacity: 0; transition: all 0.2s ease;
+      pointer-events: none; box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E");
+      background-size: 55%; background-repeat: no-repeat; background-position: center;
+    }
+    .note:hover .note-close { opacity: 1; pointer-events: auto; }
+    .note-close:hover { background-color: #222; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+  </style>
+</head>
+<body>
+
+<div class="general-container">
+  <h1>My Task Board</h1>
+  <div class="notebook-page">
+    <form onsubmit="event.preventDefault(); addTodo();">
+      <input name="todoData" type="text" minlength="2" placeholder="Enter Todo Details" required>
+      <input name="todoDate" type="date" required>
+      <input name="todoTime" type="time" required>
+      <button type="submit">Add Todo</button>
+      <button type="button" onclick="this.form.reset()">Reset Form</button>
+    </form>
+  </div>
+  <div id="notes-monitor-element" class="notes-monitor"></div>
+</div>
+
+<script>
+  const monitor = document.getElementById('notes-monitor-element');
+  function renderNote(text = 'New note…', date = '', time = '') {
+    const note = document.createElement('div'); note.className = 'note';
+    const content = document.createElement('div'); content.className = 'note-content';
+    const textarea = document.createElement('textarea'); textarea.className = 'text-erea'; textarea.value = text;
+    const dt = document.createElement('div'); dt.className = 'date-time-container';
+    const d = document.createElement('div'); d.className = 'date'; d.textContent = date || new Date().toLocaleDateString('en-GB');
+    const t = document.createElement('div'); t.className = 'time'; t.textContent = time || new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    dt.append(d, t); content.append(textarea, dt);
+    const closeBtn = document.createElement('button'); closeBtn.type = 'button'; closeBtn.className = 'note-close'; closeBtn.setAttribute('aria-label', 'Delete note');
+    closeBtn.onclick = () => { note.style.transition = 'all 0.4s ease'; note.style.transform = 'rotate(180deg) scale(0)'; note.style.opacity = '0'; setTimeout(() => note.remove(), 400); };
+    note.append(content, closeBtn); monitor.appendChild(note);
+  }
+  for (let i = 0; i < 12; i++) renderNote(`Note ${i + 1}`, '29/10/2025', '14:00');
+  function addTodo() {
+    const form = document.querySelector('form');
+    const data = form.elements.todoData.value.trim();
+    const date = form.elements.todoDate.value.replace(/-/g, '/');
+    const time = form.elements.todoTime.value;
+    if (!data) return;
+    renderNote(data, date, time);
+    form.reset();
+  }
+</script>
+</body>
+</html>

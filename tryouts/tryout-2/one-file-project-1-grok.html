@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <title>Project 1</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: "Covered By Your Grace", cursive;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding-top: 20px;
+      font-weight: 900;
+      font-size: 60px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      gap: 10px;
+    }
+
+    form input,
+    form button {
+      min-width: 200px;
+      height: 30px;
+      border: none;
+      font-family: "Covered By Your Grace";
+      font-size: 30px;
+      text-align: center;
+      background-color: transparent;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    /* Full-screen container */
+    .general-container {
+      background-image: url('images/wooden-notes-board.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      height: 100vh;
+      width: 100vw;
+      font-size: 30px;
+    }
+
+    .notebook-page {
+      background: url('images/notebook-page.jpg') center center / 100% 100% no-repeat;
+      height: 300px;
+      width: 60%;
+      display: flex;
+      justify-self: center;
+      margin-top: 10px;
+      filter: drop-shadow(0 2px 4px black);
+    }
+
+    .notes-monitor {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-left: 50px;
+      margin-top: 20px;
+      justify-content: space-around;
+      overflow: scroll;
+      scrollbar-width: none;
+      height: 400px;
+      margin-right: 50px;
+    }
+
+    .note {
+      background: url('images/note-new-5.png') no-repeat;
+      background-size: 100% 100%;
+      width: 200px;
+      height: 300px;
+      filter: drop-shadow(0 10px 20px black);
+      animation: fadeIn 1s;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 100px;
+    }
+
+    .note-info {
+      margin-top: 40px;
+    }
+
+    .text-erea {
+      width: 155px;
+      height: 170px;
+      background: transparent;
+      border: none;
+      resize: none;
+      font-family: "Covered By Your Grace", cursive;
+      font-size: 25px;
+      color: black;
+      box-sizing: border-box;
+      outline: none;
+      overflow: scroll;
+      scrollbar-width: none;
+    }
+
+    /* === CUSTOM BLACK SQUARE + WHITE X BUTTON === */
+    .note-button {
+      position: absolute;
+      top: 30px;
+      right: 5px;
+      width: 28px;
+      height: 28px;
+      background: #000;
+      border: none;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
+
+    .note:hover .note-button {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .note-button::before,
+    .note-button::after {
+      content: "";
+      position: absolute;
+      width: 60%;
+      height: 2px;
+      background: white;
+      transform: translate(-50%, -50%) rotate(45deg);
+      left: 50%;
+      top: 50%;
+    }
+
+    .note-button::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .note-button:hover {
+      background: #222;
+    }
+
+    .date-time-container {
+      font-family: Arial;
+      font-size: 15px;
+      font-weight: bold;
+      color: blue;
+      margin-bottom: 15px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="general-container-element" class="general-container">
+    <h1>My Task Board</h1>
+
+    <!-- FORM -->
+    <div id="notebook-page-element" class="notebook-page">
+      <form onsubmit="addTodo()">
+        <input name="todoData" type="text" minlength="2" placeholder="Enter Todo Details" required>
+        <input name="todoDate" type="date" required>
+        <input name="todoTime" type="time" required>
+        <button type="submit">Add Todo</button>
+        <button type="submit">Reset Form</button>
+      </form>
+    </div>
+
+    <!-- MONITOR -->
+    <div id="notes-monitor-element" class="notes-monitor">
+      <!-- Example Note -->
+      <div class="note">
+        <button class="note-button" aria-label="Delete note"></button>
+        <div class="note-info">
+          <textarea class="text-erea">
+This note is givven to you by The Lench. The best Lenchner there is. If you want to check this out you can!!! ;yeah yeah yeah
+          </textarea>
+          <div class="date-time-container">
+            <div class="date">28/10/2025</div>
+            <div class="time">13:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    console.log('Project 1');
+
+    const notesMonitorElement = document.querySelector('#notes-monitor-element');
+
+    function renderNote() {
+      const note = document.createElement('div');
+      note.className = 'note';
+
+      // Custom black square + white X button
+      const noteButton = document.createElement('button');
+      noteButton.className = 'note-button';
+      noteButton.setAttribute('aria-label', 'Delete note');
+
+      // Click to remove
+      noteButton.addEventListener('click', function() {
+        const parentNote = this.parentElement;
+        parentNote.style.transition = 'all 0.4s ease';
+        parentNote.style.transform = 'rotate(180deg) scale(0)';
+        parentNote.style.opacity = '0';
+        setTimeout(() => parentNote.remove(), 400);
+      });
+
+      const noteInfo = document.createElement('div');
+      noteInfo.className = 'note-info';
+
+      const textErea = document.createElement('textarea');
+      textErea.textContent = 'New note...';
+      textErea.className = 'text-erea';
+
+      const dateTimeContainer = document.createElement('div');
+      dateTimeContainer.className = 'date-time-container';
+
+      const date = document.createElement('div');
+      date.textContent = new Date().toLocaleDateString('en-GB');
+      date.className = 'date';
+
+      const time = document.createElement('div');
+      time.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      time.className = 'time';
+
+      dateTimeContainer.append(date, time);
+      noteInfo.append(textErea, dateTimeContainer);
+      note.append(noteButton, noteInfo);
+      notesMonitorElement.appendChild(note);
+    }
+
+    // Render 10 sample notes
+    for (let i = 0; i < 10; i++) {
+      renderNote();
+    }
+  </script>
+</body>
+</html>

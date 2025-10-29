@@ -8,6 +8,10 @@ function renderNote() {
   const noteButton = document.createElement('button');
   noteButton.className = 'note-button'; // 'glyphicon glyphicon-remov bootstrap-button'; 
   noteButton.innerHTML = '&times;';
+  /*
+    noteButton.innerHTML = `<!-- Custom black square + white X button -->
+    <button type="button" class="close-btn" aria-label="Close"></button>`;
+  */
   const noteInfo = document.createElement('div');
   noteInfo.className = 'note-info';
   const textErea = document.createElement('textarea');
