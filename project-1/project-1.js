@@ -47,10 +47,12 @@ function addTodo(event) {
 }
 
 function resetForm() {
+  const formTextErea = document.querySelector('#arge-text-erea-element');
   const inputs = document.querySelectorAll('input');
   for (let i = 0; i < inputs.length; i++) {
     inputs[i].value = '';
   }
+  formTextErea.value = '';
 }
 
 
@@ -119,7 +121,7 @@ function renderNotes1() {
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
     const date = document.createElement('div');
-    date.textContent = todo.todoDate;
+    date.textContent = todo.todoDate.split('-').reverse().join('/');
     date.className = 'date';
     const time = document.createElement('div');
     time.className = 'time';

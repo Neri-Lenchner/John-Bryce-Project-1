@@ -83,8 +83,10 @@ textarea {
   filter: drop-shadow(0 2px 4px black);
 }
 
-.large-input {
-  min-width: 500px;
+.large-text-erea {
+  width: 600px;
+  height: 70px;
+  resize: none; 
 }
 
 .notes-monitor {
@@ -184,7 +186,7 @@ textarea {
   font-family: Arial;
   font-size: 15px;
   font-weight: bold;
-  color: blue;
+  color: rgb(47, 47, 153);
   margin-bottom: 15px;
 }
 
