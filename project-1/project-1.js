@@ -46,7 +46,7 @@ function addTodo(event) {
 }
 
 function resetForm() {
-  const formTextErea = document.querySelector('#arge-text-erea-element');
+  const formTextErea = document.querySelector('#large-text-erea-element');
   const inputs = document.querySelectorAll('input');
   for (let i = 0; i < inputs.length; i++) {
     inputs[i].value = '';
