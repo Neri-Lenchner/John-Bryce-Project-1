@@ -74,9 +74,9 @@ function renderNotes() {
     noteButton.setAttribute('onclick', `deleteNoteByIndex(${i})`);
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
-    const textErea = document.createElement('div');
-    textErea.innerText = task.taskData;
-    textErea.className = 'text-erea';
+    const text = document.createElement('div');
+    text.innerText = task.taskData;
+    text.className = 'text';
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
     const date = document.createElement('div');
@@ -86,7 +86,7 @@ function renderNotes() {
     time.className = 'time';
     time.textContent = task.taskTime;
     dateTimeContainer.append(date, time);
-    noteInfo.append(textErea, dateTimeContainer);
+    noteInfo.append(text, dateTimeContainer);
     note.append(noteButton,noteInfo);
     notesMonitorElement.appendChild(note);
     lastNoteElement = note;
@@ -113,9 +113,9 @@ function renderNotes1() {
     noteButton.setAttribute('onclick', `deleteNoteByIndex(${i})`);
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
-    const textErea = document.createElement('div');
-    textErea.innerText = task.taskData;
-    textErea.className = 'text-erea';
+    const text = document.createElement('div');
+    text.innerText = task.taskData;
+    text.className = 'text';
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
     const date = document.createElement('div');
@@ -126,7 +126,7 @@ function renderNotes1() {
     time.textContent = task.taskTime;
     dateTimeContainer.append(date, time);
 
-    noteInfo.append(textErea, dateTimeContainer);
+    noteInfo.append(text, dateTimeContainer);
 
     note.append(noteButton,noteInfo);
 
