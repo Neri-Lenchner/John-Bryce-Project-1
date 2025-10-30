@@ -150,6 +150,3 @@ function deleteNote(index) {
 function deleteNoteByIndex(index) {
   deleteNote(index);
 }
-
-// TRYOUTS //
-
