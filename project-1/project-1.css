@@ -50,7 +50,7 @@ button:hover {
 }
 
 button:active {
-  color: rgb(27, 136, 47);
+  color: red;
   filter: drop-shadow(1px 1px 1px yellow);
 }
 
@@ -117,7 +117,7 @@ textarea {
 }
 
 .note {
-  background: url('images/note-new-5.png') no-repeat;
+  background: url('images/note-new-9.png') no-repeat;
   background-size: 100% 100%;
   width: 200px;
   height: 300px;
