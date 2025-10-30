@@ -157,7 +157,7 @@ textarea {
   color: black;
   box-sizing: border-box;
   outline: none;
-  overflow: scrollS;
+  overflow: scroll;
   scrollbar-width: none;
 }
 
