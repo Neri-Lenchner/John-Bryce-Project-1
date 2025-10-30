@@ -1,48 +1,48 @@
-class Todo {
-  todoData;
-  todoDate;
-  todoTime;
+class Task {
+  taskData;
+  taskDate;
+  taskTime;
 
-  constructor(todoData, todoDate, todoTime) {
-    this.todoData = todoData;
-    this.todoDate = todoDate;
-    this.todoTime = todoTime;
+  constructor(taskData, taskDate, taskTime) {
+    this.taskData = taskData;
+    this.taskDate = taskDate;
+    this.taskTime = taskTime;
   }
 }
 
 // Restart Stuff //
-const todoListTotalData = JSON.parse(localStorage.getItem('tudulist')) || [];
-const todoListTotal = [];
-createTodoList();
+const taskListTotalData = JSON.parse(localStorage.getItem('taskList')) || [];
+const taskListTotal = [];
+createTaskList();
 renderNotes1();
 
 /////////////////
 
-function createTodoList() {
-  if (todoListTotalData.length) {
-    for (let i = 0; i < todoListTotalData.length; i++) {
-      const todo = todoListTotalData[i];
-      todoListTotal.push(new Todo(todo.todoData, todo.todoDate, todo.todoTime));
+function createTaskList() {
+  if (taskListTotalData.length) {
+    for (let i = 0; i < taskListTotalData.length; i++) {
+      const task = taskListTotalData[i];
+      taskListTotal.push(new Task(task.taskData, task.taskDate, task.taskTime));
     }
   }
 }
 
 function saveData() {
-  localStorage.setItem('tudulist', JSON.stringify(todoListTotal));
+  localStorage.setItem('taskList', JSON.stringify(taskListTotal));
 }
 
-function addTodo(event) {
+function addTask(event) {
   event.preventDefault();
 
   const form = event.target;
-  const data = form.todoData.value.trim();
-  const date = form.todoDate.value;
-  const time = form.todoTime.value;
+  const data = form.taskData.value.trim();
+  const date = form.taskDate.value;
+  const time = form.taskTime.value;
 
-  todoListTotal.push(new Todo(data, date, time));
+  taskListTotal.push(new Task(data, date, time));
   saveData();
   renderNotes();
-  console.log(todoListTotal);
+  console.log(taskListTotal);
 }
 
 function resetForm() {
@@ -61,9 +61,9 @@ function renderNotes() {
 
   notesMonitorElement.innerHTML = '';
   let lastNoteElement = null;
-  for (let i = 0; i < todoListTotal.length; i++) {
+  for (let i = 0; i < taskListTotal.length; i++) {
 
-    const todo = todoListTotal[i];
+    const task = taskListTotal[i];
 
     const note = document.createElement('div');
     note.className = 'note';
@@ -75,16 +75,16 @@ function renderNotes() {
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
     const textErea = document.createElement('textarea');
-    textErea.value = todo.todoData;
+    textErea.value = task.taskData;
     textErea.className = 'text-erea';
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
     const date = document.createElement('div');
-    date.textContent = todo.todoDate.split('-').reverse().join('/');
+    date.textContent = task.taskDate.split('-').reverse().join('/');
     date.className = 'date';
     const time = document.createElement('div');
     time.className = 'time';
-    time.textContent = todo.todoTime;
+    time.textContent = task.taskTime;
     dateTimeContainer.append(date, time);
     noteInfo.append(textErea, dateTimeContainer);
     note.append(noteButton,noteInfo);
@@ -100,9 +100,9 @@ function renderNotes1() {
   const notesMonitorElement = document.querySelector('#notes-monitor-element');
 
   notesMonitorElement.innerHTML = '';
-  for (let i = 0; i < todoListTotal.length; i++) {
+  for (let i = 0; i < taskListTotal.length; i++) {
 
-    const todo = todoListTotal[i];
+    const task = taskListTotal[i];
 
     const note = document.createElement('div');
     note.className = 'note';
@@ -114,16 +114,16 @@ function renderNotes1() {
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
     const textErea = document.createElement('textarea');
-    textErea.value = todo.todoData;
+    textErea.value = task.taskData;
     textErea.className = 'text-erea';
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.className = 'date-time-container';
     const date = document.createElement('div');
-    date.textContent = todo.todoDate.split('-').reverse().join('/');
+    date.textContent = task.taskDate.split('-').reverse().join('/');
     date.className = 'date';
     const time = document.createElement('div');
     time.className = 'time';
-    time.textContent = todo.todoTime;
+    time.textContent = task.taskTime;
     dateTimeContainer.append(date, time);
 
     noteInfo.append(textErea, dateTimeContainer);
@@ -135,12 +135,12 @@ function renderNotes1() {
 }
 
 function deleteNote(index) {
-  for (let i = 0; i < todoListTotal.length; i++) {
+  for (let i = 0; i < taskListTotal.length; i++) {
     if (i === index ) {
-      todoListTotal.splice(i, 1);
+      taskListTotal.splice(i, 1);
       saveData();
-      if (todoListTotal.length === 0) {
-        localStorage.removeItem('tudulist');
+      if (taskListTotal.length === 0) {
+        localStorage.removeItem('taskList');
       }
       renderNotes1();
     }

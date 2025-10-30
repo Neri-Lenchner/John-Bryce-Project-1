@@ -21,11 +21,11 @@
     <!--FORM-->
   
     <div id="notebook-page-element" class="notebook-page">
-      <form onsubmit="addTodo(event); return false;">
-        <textarea id="large-text-erea-element" class="large-text-erea" name="todoData" minlength="2" placeholder="Enter Todo Details"  required></textarea>
-        <input name="todoDate" type="date" required>
-        <input name="todoTime" type="time" required>
-        <button type="submit">Add Todo</button>
+      <form onsubmit="addTask(event); return false;">
+        <textarea id="large-text-erea-element" class="large-text-erea" name="taskData" minlength="2" placeholder="Enter Task Details"  required></textarea>
+        <input name="taskDate" type="date" required>
+        <input name="taskTime" type="time" required>
+        <button type="submit">Add Task</button>
       </form>
       <button onclick="resetForm()">Reset Form</button>
     </div>
