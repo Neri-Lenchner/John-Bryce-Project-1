@@ -45,7 +45,7 @@ button {
   transition: all 0.1s;
 }
 
-button:hover {
+.notebook-page button:hover {
   scale: 1.1;
 }
 
@@ -120,11 +120,11 @@ textarea {
 }
 
 .note {
-  background: url('images/note-new-9.png') no-repeat;
+  background: url('images/note-new-14.png') no-repeat;
   background-size: 100% 100%;
   width: 200px;
   height: 300px;
-  filter: drop-shadow(0 10px 20px black);
+  filter: drop-shadow(0 20px 10px black);
   overflow: hidden; 
   display: flex;
   flex-direction: column;
