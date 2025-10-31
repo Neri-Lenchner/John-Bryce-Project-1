@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* removes scrollbars */
+  overflow: hidden;
   font-family: "Covered By Your Grace", cursive;
   box-sizing: border-box;
 }
@@ -49,14 +49,9 @@ button:hover {
   scale: 1.1;
 }
 
-button:active {
+.notebook-page button:active {
   color: red;
   filter: drop-shadow(1px 1px 1px yellow);
-}
-
-.notebook-page {
-  display: flex;
-  flex-direction: column;
 }
 
 button:hover {
@@ -87,19 +82,12 @@ textarea {
   font-size: 30px;
 }
 
-/*
-.general-container {
-  background: url('images/wooden-notes-board.jpg') center/cover no-repeat fixed;
-  min-width: 1000px;
-  width: 100vw;
-  height: 100vh;
-}
-*/
 .notebook-page {
   background: url('images/notebook-page.jpg') center center / 100% 100% no-repeat;
   height: 300px;
   width: 60%;                    
   display: flex;
+  flex-direction: column;
   justify-self: center;
   margin-top: 10px;
   filter: drop-shadow(0 2px 4px black);
@@ -109,6 +97,14 @@ textarea {
   width: 600px;
   height: 70px;
   resize: none; 
+}
+
+.date-input {
+  margin-bottom: 3px;
+}
+
+.add-button {
+  margin-top: 15px;
 }
 
 .notes-monitor {
@@ -195,11 +191,6 @@ textarea {
   color: rgb(47, 47, 153);
   margin-bottom: 15px;
 }
-
-.date {
-
-}
-
 
 @keyframes fadeIn {
   0% {
