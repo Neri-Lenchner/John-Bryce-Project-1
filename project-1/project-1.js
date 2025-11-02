@@ -55,7 +55,7 @@ function resetForm() {
 }
 
 
-
+console.log('resetForm-function');
 function renderNotes() {
   const notesMonitorElement = document.querySelector('#notes-monitor-element');
 
