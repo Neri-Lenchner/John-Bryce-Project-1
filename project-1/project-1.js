@@ -54,7 +54,7 @@ function resetForm() {
   formTextErea.value = '';
 }
 
-
+console.log('renderNotes new branch start');
 
 function renderNotes() {
   const notesMonitorElement = document.querySelector('#notes-monitor-element');
