@@ -46,6 +46,49 @@ function addTask(event) {
   console.log(taskListTotal);
 }
 
+/*
+function addTask(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const data = form.taskData.value.trim();
+  const date = form.taskDate.value; // YYYY-MM-DD
+  const time = form.taskTime.value; // HH:MM
+
+  // ——— THE EXCELLENT PART YOU REMEMBER ———
+  const now = new Date();
+  const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  const [year, month, day] = date.split('-').map(Number);
+  const taskMidnight = new Date(year, month - 1, day);
+
+  // If task date is before today → block
+  if (taskMidnight < todayMidnight) {
+    alert("You cannot schedule a task in the past!");
+    return;
+  }
+
+  // If task is today, check time
+  if (taskMidnight.getTime() === todayMidnight.getTime()) {
+    const [hour, minute] = time.split(':').map(Number);
+    const taskTimeInMinutes = hour * 60 + minute;
+    const nowTimeInMinutes = now.getHours() * 60 + now.getMinutes();
+
+    if (taskTimeInMinutes <= nowTimeInMinutes) {
+      alert("This time has already passed today!");
+      return;
+    }
+  }
+  // ——— END OF EXCELLENT LOGIC ———
+
+  taskListTotal.push(new Task(data, date, time));
+  saveData();
+  renderNotes(true);
+  resetForm();
+  console.log(taskListTotal);
+}
+*/
+
 function resetForm() {
   const formTextErea = document.querySelector('#large-text-erea-element');
   const inputs = document.querySelectorAll('input');
