@@ -52,20 +52,18 @@ function addTask(event) {
 
   const form = event.target;
   const data = form.taskData.value.trim();
-  const date = form.taskDate.value; // YYYY-MM-DD
+  const date = form.taskDate.value; 
   const time = form.taskTime.value;
 
-  const selectedDate = new Date(date + 'T' + time + ':00'); // Combine date & time
+  const selectedDate = new Date(date + 'T' + time + ':00');
   const today = new Date();
-  today.setHours(0, 0, 0, 0); // Normalize to midnight for fair comparison
+  today.setHours(0, 0, 0, 0);
 
-  // Compare only dates (ignore time for "past date" check)
   if (selectedDate < today) {
     alert('Please enter a valid future date.');
     return;
   }
 
-  // --- If valid, proceed ---
   taskListTotal.push(new Task(data, date, time));
   saveData();
   renderNotes(true);
