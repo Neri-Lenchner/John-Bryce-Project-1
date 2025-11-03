@@ -4,7 +4,7 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  font-family: "Covered By Your Grace", cursive;
+  font-family: "Covered By Your Grace", cursive,sans-serif, Arial;
   box-sizing: border-box;
 }
 
@@ -176,7 +176,7 @@ textarea {
 }
 
 .last-note {
-  animation: fadeIn 1s;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .note-info {
