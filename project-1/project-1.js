@@ -55,7 +55,7 @@ function resetForm() {
   formTextErea.value = '';
 }
 
-function renderNotes(bul) {
+function renderNotes(bulIsTrue) {
   
   const notesMonitorElement = document.querySelector('#notes-monitor-element');
   notesMonitorElement.innerHTML = '';
@@ -90,7 +90,7 @@ function renderNotes(bul) {
     notesMonitorElement.appendChild(note);
     lastNoteElement = note;
   }
-  if (bul) {
+  if (bulIsTrue) {
     if (lastNoteElement) {
       lastNoteElement.classList.add('last-note');
     }
