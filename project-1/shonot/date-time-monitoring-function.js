@@ -23,3 +23,21 @@ function addTask(event) {
   resetForm(); // Clear form after success
   console.log(taskListTotal);
 }
+
+
+
+// original function i have wrote //
+
+function addTask(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const data = form.taskData.value.trim();
+  const date = form.taskDate.value;
+  const time = form.taskTime.value;
+
+  taskListTotal.push(new Task(data, date, time));
+  saveData();
+  renderNotes(true);
+  console.log(taskListTotal);
+}
