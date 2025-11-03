@@ -53,38 +53,23 @@ function addTask(event) {
   const form = event.target;
   const data = form.taskData.value.trim();
   const date = form.taskDate.value; // YYYY-MM-DD
-  const time = form.taskTime.value; // HH:MM
+  const time = form.taskTime.value;
 
-  // ——— THE EXCELLENT PART YOU REMEMBER ———
-  const now = new Date();
-  const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const selectedDate = new Date(date + 'T' + time + ':00'); // Combine date & time
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Normalize to midnight for fair comparison
 
-  const [year, month, day] = date.split('-').map(Number);
-  const taskMidnight = new Date(year, month - 1, day);
-
-  // If task date is before today → block
-  if (taskMidnight < todayMidnight) {
-    alert("You cannot schedule a task in the past!");
+  // Compare only dates (ignore time for "past date" check)
+  if (selectedDate < today) {
+    alert('Please enter a valid future date.');
     return;
   }
 
-  // If task is today, check time
-  if (taskMidnight.getTime() === todayMidnight.getTime()) {
-    const [hour, minute] = time.split(':').map(Number);
-    const taskTimeInMinutes = hour * 60 + minute;
-    const nowTimeInMinutes = now.getHours() * 60 + now.getMinutes();
-
-    if (taskTimeInMinutes <= nowTimeInMinutes) {
-      alert("This time has already passed today!");
-      return;
-    }
-  }
-  // ——— END OF EXCELLENT LOGIC ———
-
+  // --- If valid, proceed ---
   taskListTotal.push(new Task(data, date, time));
   saveData();
-  renderNotes(true);
-  resetForm();
+  renderNotes();
+  resetForm(); // Clear form after success
   console.log(taskListTotal);
 }
 */
