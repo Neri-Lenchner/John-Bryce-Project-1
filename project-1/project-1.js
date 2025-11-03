@@ -17,7 +17,6 @@ let isNewData = false;
 createTaskList();
 renderNotes(false);
 
-
 /////////////////
 
 function createTaskList() {
@@ -56,16 +55,14 @@ function resetForm() {
   formTextErea.value = '';
 }
 
-console.log('renderNotes new branch start');
-
 function renderNotes(bul) {
   
   const notesMonitorElement = document.querySelector('#notes-monitor-element');
 
   notesMonitorElement.innerHTML = '';
-  if (bul) {
-    let lastNoteElement = null;
-  }
+    if (bul) {
+      let lastNoteElement = null;
+    }
   for (let i = 0; i < taskListTotal.length; i++) {
 
     const task = taskListTotal[i];
@@ -97,10 +94,10 @@ function renderNotes(bul) {
     lastNoteElement = note;
   }
   if (bul) {
-      if (lastNoteElement) {
-        lastNoteElement.classList.add('last-note');
-      }
+    if (lastNoteElement) {
+      lastNoteElement.classList.add('last-note');
     }
+  }
 }
 
 function deleteNote(index) {
