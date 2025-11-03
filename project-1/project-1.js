@@ -58,11 +58,9 @@ function resetForm() {
 function renderNotes(bul) {
   
   const notesMonitorElement = document.querySelector('#notes-monitor-element');
-
   notesMonitorElement.innerHTML = '';
-    if (bul) {
-      let lastNoteElement = null;
-    }
+  let lastNoteElement = null;
+  
   for (let i = 0; i < taskListTotal.length; i++) {
 
     const task = taskListTotal[i];
@@ -72,7 +70,6 @@ function renderNotes(bul) {
     const noteButton = document.createElement('button');
     noteButton.className = 'note-button'; 
     noteButton.innerHTML = '&times;';
-    // noteButton.setAttribute('onclick', `deleteNote(${i})`);
     noteButton.setAttribute('onclick', `deleteNoteByIndex(${i})`);
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
