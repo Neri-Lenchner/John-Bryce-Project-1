@@ -31,7 +31,7 @@ function createTaskList() {
 function saveData() {
   localStorage.setItem('taskList', JSON.stringify(taskListTotal));
 }
-
+/*
 function addTask(event) {
   event.preventDefault();
 
@@ -45,8 +45,8 @@ function addTask(event) {
   renderNotes(true);
   console.log(taskListTotal);
 }
+*/
 
-/*
 function addTask(event) {
   event.preventDefault();
 
@@ -68,11 +68,9 @@ function addTask(event) {
   // --- If valid, proceed ---
   taskListTotal.push(new Task(data, date, time));
   saveData();
-  renderNotes();
-  resetForm(); // Clear form after success
+  renderNotes(true);
   console.log(taskListTotal);
 }
-*/
 
 function resetForm() {
   const formTextErea = document.querySelector('#large-text-erea-element');
