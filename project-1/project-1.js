@@ -19,6 +19,7 @@ renderNotes(false);
 
 /////////////////
 
+console.log('forEach-branch');
 function createTaskList() {
   if (taskListTotalData.length) {
     for (let i = 0; i < taskListTotalData.length; i++) {
