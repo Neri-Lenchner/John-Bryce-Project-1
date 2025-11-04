@@ -38,10 +38,6 @@ function createTaskList() {
   }
 }
 
-
-
-
-
 function saveData() {
   localStorage.setItem('taskList', JSON.stringify(taskListTotal));
 }
@@ -68,7 +64,7 @@ function addTask(event) {
   renderNotes(true);
   console.log(taskListTotal);
 }
-
+/*
 function resetForm() {
   const formTextErea = document.querySelector('#large-text-erea-element');
   const inputs = document.querySelectorAll('input');
@@ -77,6 +73,17 @@ function resetForm() {
   }
   formTextErea.value = '';
 }
+*/
+function resetForm() {
+  const formTextErea = document.querySelector('#large-text-erea-element');
+  const inputs = document.querySelectorAll('input');
+
+  inputs.forEach((input) => {
+    input.value = '';
+  });
+  formTextErea.value = '';
+}
+
 /*
 function renderNotes(bulIsTrue) {
   
@@ -159,7 +166,7 @@ function renderNotes(bulIsTrue) {
     }
   }
 }
-
+/*
 function deleteNote(index) {
   for (let i = 0; i < taskListTotal.length; i++) {
     if (i === index ) {
@@ -171,6 +178,20 @@ function deleteNote(index) {
       renderNotes(false);
     }
   }
+}
+*/
+
+function deleteNote(index) {
+  taskListTotal.forEach((task, i) => {
+    if (i === index ) {
+      taskListTotal.splice(i, 1);
+      saveData();
+      if (taskListTotal.length === 0) {
+        localStorage.removeItem('taskList');
+      }
+      renderNotes(false);
+    }
+  });
 }
 
 function deleteNoteByIndex(index) {
