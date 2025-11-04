@@ -20,6 +20,7 @@ renderNotes(false);
 /////////////////
 
 console.log('forEach-branch');
+/*
 function createTaskList() {
   if (taskListTotalData.length) {
     for (let i = 0; i < taskListTotalData.length; i++) {
@@ -28,6 +29,18 @@ function createTaskList() {
     }
   }
 }
+*/
+function createTaskList() {
+  if (taskListTotalData.length) {
+    taskListTotalData.forEach((task) => {
+      taskListTotal.push(new Task(task.taskData, task.taskDate, task.taskTime));
+    });
+  }
+}
+
+
+
+
 
 function saveData() {
   localStorage.setItem('taskList', JSON.stringify(taskListTotal));
@@ -64,7 +77,7 @@ function resetForm() {
   }
   formTextErea.value = '';
 }
-
+/*
 function renderNotes(bulIsTrue) {
   
   const notesMonitorElement = document.querySelector('#notes-monitor-element');
@@ -100,6 +113,46 @@ function renderNotes(bulIsTrue) {
     notesMonitorElement.appendChild(note);
     lastNoteElement = note;
   }
+  if (bulIsTrue) {
+    if (lastNoteElement) {
+      lastNoteElement.classList.add('last-note');
+    }
+  }
+}
+*/
+
+function renderNotes(bulIsTrue) {
+  const notesMonitorElement = document.querySelector('#notes-monitor-element');
+  notesMonitorElement.innerHTML = '';
+  let lastNoteElement = null;
+
+  taskListTotal.forEach((task, i) => {
+
+    const note = document.createElement('div');
+    note.className = 'note';
+    const noteButton = document.createElement('button');
+    noteButton.className = 'note-button'; 
+    noteButton.innerHTML = '&times;';
+    noteButton.setAttribute('onclick', `deleteNoteByIndex(${i})`);
+    const noteInfo = document.createElement('div');
+    noteInfo.className = 'note-info';
+    const text = document.createElement('div');
+    text.innerText = task.taskData;
+    text.className = 'text';
+    const dateTimeContainer = document.createElement('div');
+    dateTimeContainer.className = 'date-time-container';
+    const date = document.createElement('div');
+    date.textContent = task.taskDate.split('-').reverse().join('/');
+    date.className = 'date';
+    const time = document.createElement('div');
+    time.className = 'time';
+    time.textContent = task.taskTime;
+    dateTimeContainer.append(date, time);
+    noteInfo.append(text, dateTimeContainer);
+    note.append(noteButton,noteInfo);
+    notesMonitorElement.appendChild(note);
+    lastNoteElement = note;
+  });
   if (bulIsTrue) {
     if (lastNoteElement) {
       lastNoteElement.classList.add('last-note');
