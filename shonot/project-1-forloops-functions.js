@@ -10,8 +10,6 @@ function resetForm() {
   formTextErea.value = '';
 }
 
-
-
 function createTaskList() {
   if (taskListTotalData.length) {
     for (let i = 0; i < taskListTotalData.length; i++) {
@@ -20,8 +18,6 @@ function createTaskList() {
     }
   }
 }
-
-
 
 function renderNotes(bulIsTrue) {
   
@@ -64,8 +60,6 @@ function renderNotes(bulIsTrue) {
     }
   }
 }
-
-
 
 function deleteNote(index) {
   for (let i = 0; i < taskListTotal.length; i++) {
