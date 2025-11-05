@@ -27,32 +27,11 @@ form {
   gap: 10px;
   min-width: 600px;
 }
-.notebook-page>button,
-form input,
-form button {
-  min-width: 200px;
-  height: 30px;
-  border: none;
-  font-family: "Covered By Your Grace";
-  font-size: 30px;
-  text-align: center;
-  background-color: transparent;
-  margin-bottom: 19px;
-}
 
 button {
   color: rgb(36, 9, 125);
   font-weight: bold;
   transition: all 0.1s;
-}
-
-.notebook-page button:hover {
-  scale: 1.1;
-}
-
-.notebook-page button:active {
-  color: red;
-  filter: drop-shadow(1px 1px 1px yellow);
 }
 
 button:hover {
@@ -86,6 +65,28 @@ textarea {
   justify-self: center;
   margin-top: 10px;
   filter: drop-shadow(0 2px 4px black);
+}
+
+.notebook-page>button,
+form input,
+form button {
+  min-width: 200px;
+  height: 30px;
+  border: none;
+  font-family: "Covered By Your Grace";
+  font-size: 30px;
+  text-align: center;
+  background-color: transparent;
+  margin-bottom: 19px;
+}
+
+.notebook-page button:hover {
+  scale: 1.1;
+}
+
+.notebook-page button:active {
+  color: red;
+  filter: drop-shadow(1px 1px 1px yellow);
 }
 
 .large-text-erea {
@@ -142,7 +143,7 @@ textarea {
   margin-top: 40px;
 }
 
- .text {
+.text {
   width: 155px;
   height: 170px;
   background: transparent;
@@ -179,6 +180,7 @@ textarea {
   opacity: 1;
   pointer-events: auto;
 }
+
 .note-button:hover {
   opacity: 1;
 }

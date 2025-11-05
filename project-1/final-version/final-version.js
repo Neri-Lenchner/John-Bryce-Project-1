@@ -10,14 +10,11 @@ class Task {
   }
 }
 
-// Restart Stuff //
 const taskListTotalData = JSON.parse(localStorage.getItem('taskList')) || [];
 const taskListTotal = [];
 let isNewData = false;
 createTaskList();
 renderNotes(false);
-
-/////////////////
 
 console.log('final-version main');
 
