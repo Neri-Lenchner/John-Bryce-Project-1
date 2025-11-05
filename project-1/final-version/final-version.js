@@ -53,7 +53,6 @@ function addTask(event) {
   taskListTotal.push(new Task(data, date, time));
   saveData();
   renderNotes(true);
-  console.log(taskListTotal);
 }
 
 function resetForm() {
@@ -78,7 +77,9 @@ function renderNotes(bulIsTrue) {
     const noteButton = document.createElement('button');
     noteButton.className = 'note-button'; 
     noteButton.innerHTML = '&times;';
-    noteButton.setAttribute('onclick', `deleteNoteByIndex(${i})`);
+    noteButton.addEventListener('click', () => {
+    deleteNote(i);
+    });
     const noteInfo = document.createElement('div');
     noteInfo.className = 'note-info';
     const text = document.createElement('div');
@@ -119,7 +120,5 @@ function deleteNote(index) {
   });
 }
 
-function deleteNoteByIndex(index) {
-  deleteNote(index);
-}
+
 

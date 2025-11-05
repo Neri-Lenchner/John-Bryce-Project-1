@@ -92,6 +92,7 @@ textarea {
   width: 600px;
   height: 70px;
   resize: none; 
+  outline: none;
 }
 
 .date-input {
@@ -151,7 +152,6 @@ textarea {
   font-size: 25px;
   color: black;
   box-sizing: border-box;
-  outline: none;
   overflow: scroll;
   scrollbar-width: none;
 }
