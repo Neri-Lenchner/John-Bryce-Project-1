@@ -100,6 +100,11 @@ textarea {
   margin-top: 15px;
 }
 
+.reset-button {
+  margin: 0 auto;
+  width: 200px;
+}
+
 .notes-monitor {
   display: flex;
   flex-wrap: wrap;
